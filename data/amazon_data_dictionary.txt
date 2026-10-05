@@ -1,0 +1,479 @@
+DATA DICTIONARY
+============================================================
+Source: Olist Brazilian E-Commerce Dataset (SQLite → MySQL)
+Total Tables: 11
+
+------------------------------------------------------------
+TABLE: customers
+Rows : 99,441
+
+  Column  : customer_id
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Unique ID for each order (links to orders table)
+  Sample  : 06b8999e2fba1a1fbc88172c00ba8bc7, 18955e83d337fd6b2def6b18a428ac77, 4e7b3e00288586ebd08712fdd0374a03
+
+  Column  : customer_unique_id
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Unique ID per customer across all orders
+  Sample  : 861eff4711a542e4b93843c6dd7febb0, 290c77bc529b7ac935b93aa66c333dc3, 060e732b5b29e8181a18229c7b0b2b5e
+
+  Column  : customer_zip_code_prefix
+  Type    : INT
+  Nulls   : 0.0%
+  Info    : First 5 digits of customer zip code
+  Sample  : 14409, 9790, 1151
+
+  Column  : customer_city
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : City name of customer
+  Sample  : franca, sao bernardo do campo, sao paulo
+
+  Column  : customer_state
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : State abbreviation (e.g. SP, RJ)
+  Sample  : SP, SC, MG
+
+
+------------------------------------------------------------
+TABLE: geolocation
+Rows : 1,000,163
+
+  Column  : geolocation_zip_code_prefix
+  Type    : INT
+  Nulls   : 0.0%
+  Info    : First 5 digits of zip code
+  Sample  : 1037, 1046, 1041
+
+  Column  : geolocation_lat
+  Type    : DOUBLE
+  Nulls   : 0.0%
+  Info    : Latitude coordinate
+  Sample  : -23.54562128115268, -23.54608112703553, -23.54612896641469
+
+  Column  : geolocation_lng
+  Type    : DOUBLE
+  Nulls   : 0.0%
+  Info    : Longitude coordinate
+  Sample  : -46.63929204800168, -46.64482029837157, -46.64295148361138
+
+  Column  : geolocation_city
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : City name
+  Sample  : sao paulo, são paulo, sao bernardo do campo
+
+  Column  : geolocation_state
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : State abbreviation
+  Sample  : SP, RN, AC
+
+
+------------------------------------------------------------
+TABLE: leads_closed
+Rows : 842
+
+  Column  : mql_id
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Marketing Qualified Lead ID (links to leads_qualified)
+  Sample  : 5420aad7fec3549a85876ba1c529bd84, a555fb36b9368110ede0f043dfc3b9a0, 327174d3648a2d047e8940d7d15204ca
+
+  Column  : seller_id
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Seller who was converted (links to sellers)
+  Sample  : 2c43fb513632d29b3b58df74816f1b06, bbb7d7893a450660432ea6652310ebb7, 612170e34b97004b3ba37eae81836b4c
+
+  Column  : sdr_id
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Sales Development Representative ID
+  Sample  : a8387c01a09e99ce014107505b92388c, 09285259593c61296eef10c734121d5b, b90f87164b5f8c2cfa5c8572834dbe3f
+
+  Column  : sr_id
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Sales Representative ID
+  Sample  : 4ef15afb4b2723d8f3d81e51ec7afefe, d3d1e91a157ea7f90548eef82f1955e3, 6565aa9ce3178a5caf6171827af3a9ba
+
+  Column  : won_date
+  Type    : DATETIME
+  Nulls   : 0.0%
+  Info    : Date the lead was converted to a seller
+  Sample  : 2018-02-26 19:58:54, 2018-05-08 20:17:59, 2018-06-05 17:27:23
+
+  Column  : business_segment
+  Type    : VARCHAR(255)
+  Nulls   : 0.1%
+  Info    : Segment the seller operates in (e.g. furniture, electronics)
+  Sample  : pet, car_accessories, home_appliances
+
+  Column  : lead_type
+  Type    : VARCHAR(255)
+  Nulls   : 0.7%
+  Info    : Type of lead (e.g. online_big, offline)
+  Sample  : online_medium, industry, online_big
+
+  Column  : lead_behaviour_profile
+  Type    : VARCHAR(255)
+  Nulls   : 21.0%
+  Info    : Behaviour tag for the lead (e.g. cat, eagle)
+  Sample  : cat, eagle, wolf
+
+  Column  : has_company
+  Type    : INT
+  Nulls   : 92.5%
+  Info    : Whether the seller has a registered company (1/0)
+  Sample  : 1, 0
+
+  Column  : has_gtin
+  Type    : INT
+  Nulls   : 92.4%
+  Info    : Whether products have GTIN barcodes (1/0)
+  Sample  : 1, 0
+
+  Column  : average_stock
+  Type    : VARCHAR(255)
+  Nulls   : 92.2%
+  Info    : Declared average stock level
+  Sample  : 20-50, 1-5, 5-20
+
+  Column  : business_type
+  Type    : VARCHAR(255)
+  Nulls   : 1.2%
+  Info    : Type of business (e.g. reseller, manufacturer)
+  Sample  : reseller, manufacturer, other
+
+  Column  : declared_product_catalog_size
+  Type    : DOUBLE
+  Nulls   : 91.8%
+  Info    : Number of products the seller says they carry
+  Sample  : 2000.0, 80.0, 15.0
+
+  Column  : declared_monthly_revenue
+  Type    : DOUBLE
+  Nulls   : 0.0%
+  Info    : Self-reported monthly revenue (BRL)
+  Sample  : 0.0, 100000.0, 20000.0
+
+
+------------------------------------------------------------
+TABLE: leads_qualified
+Rows : 8,000
+
+  Column  : mql_id
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Marketing Qualified Lead ID (links to leads_closed)
+  Sample  : dac32acd4db4c29c230538b72f8dd87d, 8c18d1de7f67e60dbd64e3c07d7e9d5d, b4bc852d233dfefc5131f593b538befa
+
+  Column  : first_contact_date
+  Type    : DATETIME
+  Nulls   : 0.0%
+  Info    : Date the lead first made contact
+  Sample  : 2018-02-01, 2017-10-20, 2018-03-22
+
+  Column  : landing_page_id
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Landing page that captured the lead
+  Sample  : 88740e65d5d6b056e0cda098e1ea6313, 007f9098284a86ee80ddeb25d53e0af8, a7982125ff7aa3b2054c6e44f9d28522
+
+  Column  : origin
+  Type    : VARCHAR(255)
+  Nulls   : 0.8%
+  Info    : Traffic source (e.g. organic_search, paid_search, social)
+  Sample  : social, paid_search, organic_search
+
+
+------------------------------------------------------------
+TABLE: order_items
+Rows : 112,650
+
+  Column  : order_id
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Order the item belongs to (links to orders)
+  Sample  : 00010242fe8c5a6d1ba2dd792cb16214, 00018f77f2f0320c557190d7a144bdd3, 000229ec398224ef6ca0657da4fc703e
+
+  Column  : order_item_id
+  Type    : INT
+  Nulls   : 0.0%
+  Info    : Item sequence number within the order (1, 2, 3...)
+  Sample  : 1, 2, 3
+
+  Column  : product_id
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Product purchased (links to products)
+  Sample  : 4244733e06e7ecb4970a6e2683c13e61, e5f2d52b802189ee658865ca93d83a8f, c777355d18b72b67abbeef9df44fd0fd
+
+  Column  : seller_id
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Seller fulfilling the item (links to sellers)
+  Sample  : 48436dade18ac8b2bce089ec2a041202, dd7ddc04e1b6c2c614352b383efe2d36, 5b51032eddd242adc84c38acab88f23d
+
+  Column  : shipping_limit_date
+  Type    : DATETIME
+  Nulls   : 0.0%
+  Info    : Deadline for seller to hand item to carrier
+  Sample  : 2017-09-19 09:45:35, 2017-05-03 11:05:13, 2018-01-18 14:48:30
+
+  Column  : price
+  Type    : DOUBLE
+  Nulls   : 0.0%
+  Info    : Item price (BRL)
+  Sample  : 58.9, 239.9, 199.0
+
+  Column  : freight_value
+  Type    : DOUBLE
+  Nulls   : 0.0%
+  Info    : Freight cost for this item (BRL)
+  Sample  : 13.29, 19.93, 17.87
+
+
+------------------------------------------------------------
+TABLE: order_payments
+Rows : 103,886
+
+  Column  : order_id
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Order being paid (links to orders)
+  Sample  : b81ef226f3fe1789b1e8b2acac839d17, a9810da82917af2d9aefd1278f1dcfa0, 25e8ea4e93396b6fa0d3dd708e76c1bd
+
+  Column  : payment_sequential
+  Type    : INT
+  Nulls   : 0.0%
+  Info    : Payment sequence (1 = first, 2 = second payment method, etc.)
+  Sample  : 1, 2, 4
+
+  Column  : payment_type
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Payment method (credit_card, boleto, voucher, debit_card)
+  Sample  : credit_card, boleto, voucher
+
+  Column  : payment_installments
+  Type    : INT
+  Nulls   : 0.0%
+  Info    : Number of installments chosen by customer
+  Sample  : 8, 1, 2
+
+  Column  : payment_value
+  Type    : DOUBLE
+  Nulls   : 0.0%
+  Info    : Amount paid in this payment entry (BRL)
+  Sample  : 99.33, 24.39, 65.71
+
+
+------------------------------------------------------------
+TABLE: order_reviews
+Rows : 99,224
+
+  Column  : review_id
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Unique review ID
+  Sample  : 7bc2406110b926393aa56f80a40eba40, 80e641a11e56f04c1ad469d5645fdfde, 228ce5500dc1d8e020d8d1322874b6f0
+
+  Column  : order_id
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Order being reviewed (links to orders)
+  Sample  : 73fc7af87114b39712e6da79b0a377eb, a548910a1c6147796b98fdf73dbeba33, f9e4b658b201a9f2ecdecbb34bed034b
+
+  Column  : review_score
+  Type    : INT
+  Nulls   : 0.0%
+  Info    : Customer rating from 1 (worst) to 5 (best)
+  Sample  : 4, 5, 1
+
+  Column  : review_comment_title
+  Type    : VARCHAR(255)
+  Nulls   : 88.3%
+  Info    : Short title of the review (often empty)
+  Sample  : recomendo, Super recomendo, Não chegou meu produto 
+
+  Column  : review_comment_message
+  Type    : VARCHAR(255)
+  Nulls   : 58.7%
+  Info    : Full review text (often empty)
+  Sample  : Recebi bem antes do prazo estipulado., Parabéns lojas lannister adorei comprar pela Internet seguro e prático Parabéns a todos feliz Páscoa, aparelho eficiente. no site a marca do aparelho esta impresso como 3desinfector e ao chegar esta com outro nome...atualizar com a marca correta uma vez que é o mesmo aparelho
+
+  Column  : review_creation_date
+  Type    : DATETIME
+  Nulls   : 0.0%
+  Info    : When the review survey was sent
+  Sample  : 2018-01-18 00:00:00, 2018-03-10 00:00:00, 2018-02-17 00:00:00
+
+  Column  : review_answer_timestamp
+  Type    : DATETIME
+  Nulls   : 0.0%
+  Info    : When the customer submitted the review
+  Sample  : 2018-01-18 21:46:59, 2018-03-11 03:05:13, 2018-02-18 14:36:24
+
+
+------------------------------------------------------------
+TABLE: orders
+Rows : 99,441
+
+  Column  : order_id
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Unique order ID (primary key)
+  Sample  : e481f51cbdc54678b7cc49136f2d6af7, 53cdb2fc8bc7dce0b6741e2150273451, 47770eb9100c2d0c44946d9cf07ec65d
+
+  Column  : customer_id
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Customer who placed the order (links to customers)
+  Sample  : 9ef432eb6251297304e76186b10a928d, b0830fb4747a6c6d20dea0b8c802d7ef, 41ce2a54c0b03bf3443c3d931a367089
+
+  Column  : order_status
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Current status (delivered, shipped, canceled, etc.)
+  Sample  : delivered, invoiced, shipped
+
+  Column  : order_purchase_timestamp
+  Type    : DATETIME
+  Nulls   : 0.0%
+  Info    : When the customer placed the order
+  Sample  : 2017-10-02 10:56:33, 2018-07-24 20:41:37, 2018-08-08 08:38:49
+
+  Column  : order_approved_at
+  Type    : DATETIME
+  Nulls   : 0.2%
+  Info    : When payment was approved
+  Sample  : 2017-10-02 11:07:15, 2018-07-26 03:24:27, 2018-08-08 08:55:23
+
+  Column  : order_delivered_carrier_date
+  Type    : DATETIME
+  Nulls   : 1.8%
+  Info    : When seller handed order to carrier
+  Sample  : 2017-10-04 19:55:00, 2018-07-26 14:31:00, 2018-08-08 13:50:00
+
+  Column  : order_delivered_customer_date
+  Type    : DATETIME
+  Nulls   : 3.0%
+  Info    : When customer received the order
+  Sample  : 2017-10-10 21:25:13, 2018-08-07 15:27:45, 2018-08-17 18:06:29
+
+  Column  : order_estimated_delivery_date
+  Type    : DATETIME
+  Nulls   : 0.0%
+  Info    : Estimated delivery date shown to customer at purchase
+  Sample  : 2017-10-18 00:00:00, 2018-08-13 00:00:00, 2018-09-04 00:00:00
+
+
+------------------------------------------------------------
+TABLE: product_category_name_translation
+Rows : 71
+
+  Column  : product_category_name
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Category name in Portuguese
+  Sample  : beleza_saude, informatica_acessorios, automotivo
+
+  Column  : product_category_name_english
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Category name in English
+  Sample  : health_beauty, computers_accessories, auto
+
+
+------------------------------------------------------------
+TABLE: products
+Rows : 32,951
+
+  Column  : product_id
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Unique product ID (links to order_items)
+  Sample  : 1e9e8ef04dbcff4541ed26657ea517e5, 3aa071139cb16b67ca9e5dea641aaa2f, 96bd76ec8810374ed1b65e291975717f
+
+  Column  : product_category_name
+  Type    : VARCHAR(255)
+  Nulls   : 1.9%
+  Info    : Category in Portuguese (links to translation table)
+  Sample  : perfumaria, artes, esporte_lazer
+
+  Column  : product_name_lenght
+  Type    : DOUBLE
+  Nulls   : 1.9%
+  Info    : Character count of product name
+  Sample  : 40.0, 44.0, 46.0
+
+  Column  : product_description_lenght
+  Type    : DOUBLE
+  Nulls   : 1.9%
+  Info    : Character count of product description
+  Sample  : 287.0, 276.0, 250.0
+
+  Column  : product_photos_qty
+  Type    : DOUBLE
+  Nulls   : 1.9%
+  Info    : Number of photos listed for the product
+  Sample  : 1.0, 4.0, 2.0
+
+  Column  : product_weight_g
+  Type    : DOUBLE
+  Nulls   : 0.0%
+  Info    : Product weight in grams
+  Sample  : 225.0, 1000.0, 154.0
+
+  Column  : product_length_cm
+  Type    : DOUBLE
+  Nulls   : 0.0%
+  Info    : Package length in cm
+  Sample  : 16.0, 30.0, 18.0
+
+  Column  : product_height_cm
+  Type    : DOUBLE
+  Nulls   : 0.0%
+  Info    : Package height in cm
+  Sample  : 10.0, 18.0, 9.0
+
+  Column  : product_width_cm
+  Type    : DOUBLE
+  Nulls   : 0.0%
+  Info    : Package width in cm
+  Sample  : 14.0, 20.0, 15.0
+
+
+------------------------------------------------------------
+TABLE: sellers
+Rows : 3,095
+
+  Column  : seller_id
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : Unique seller ID (links to order_items, leads_closed)
+  Sample  : 3442f8959a84dea7ee197c632cb2df15, d1b65fc7debc3361ea86b5f14c68d2e2, ce3ad9de960102d0677a81f5d0bb7b2d
+
+  Column  : seller_zip_code_prefix
+  Type    : INT
+  Nulls   : 0.0%
+  Info    : First 5 digits of seller zip code
+  Sample  : 13023, 13844, 20031
+
+  Column  : seller_city
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : City where seller is located
+  Sample  : campinas, mogi guacu, rio de janeiro
+
+  Column  : seller_state
+  Type    : VARCHAR(255)
+  Nulls   : 0.0%
+  Info    : State abbreviation where seller is located
+  Sample  : SP, RJ, PE
+
